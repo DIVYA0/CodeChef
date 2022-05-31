@@ -1,0 +1,38 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner Sc=new Scanner(System.in);
+		int testCase=Sc.nextInt();
+		for(int i=0;i<testCase;i++){
+		    String num=Sc.next();
+		    String regex="^0+(?!$)";
+		    boolean res=true;
+		    num=num.replaceAll(regex,"");
+		    int f=0,e=num.length()-1;
+		    while(f<e){
+		      if(num.charAt(e)==num.charAt(f)){
+		          f++;
+		          e--;
+		      }else{
+		        res=false;
+		       System.out.println("loses");
+		        break;
+		      }
+		    }
+		    if(res==true){
+		    		System.out.println("wins");
+		    }
+		}
+	
+
+	}
+}
