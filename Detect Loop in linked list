@@ -1,0 +1,17 @@
+class Solution {
+    //Function to check if the linked list has a loop.
+    public static boolean detectLoop(Node head){
+        // Add code here6
+    Node    sptr=head;
+    Node fptr=head;
+    
+    while(sptr!=null&&fptr!=null&&fptr.next!=null){
+        sptr=sptr.next;
+        fptr=fptr.next.next;
+        if(sptr==fptr){
+            return true;
+        }
+    }
+    return false;
+    }
+}
