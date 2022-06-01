@@ -1,0 +1,32 @@
+class Solution
+{
+    //Function to remove a loop in the linked list.
+    public static void removeLoop(Node head){
+        // code here
+        // remove the loop without losing any nodes
+        Node sptr=head;
+        Node fptr=head;
+        while(fptr!=null&&fptr.next!=null){
+            sptr=sptr.next;
+            fptr=fptr.next.next;
+            if(fptr==sptr){      //loop found
+                break;
+            }
+        }
+        if (fptr==sptr){
+            sptr=head;
+            if(sptr!=fptr){//find loop starting point
+                while(sptr.next!=fptr.next){
+                    sptr=sptr.next;
+                fptr=fptr.next;
+                }
+                fptr.next=null;
+            }else{
+                while(fptr.next!=sptr){
+                    fptr=fptr.next;
+                }
+                fptr.next=null;
+            }
+        }
+    }
+}
