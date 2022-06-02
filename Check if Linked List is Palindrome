@@ -1,0 +1,48 @@
+class Solution
+{
+    //Function to check whether the list is palindrome.
+    boolean isPalindrome(Node head) 
+    {
+        //Your code here
+        Node sptr=head;
+        Node fptr=head;
+        Node dummy=head;
+        Node prev_ptr=head;
+        while(fptr!=null&&fptr.next!=null){
+        prev_ptr=sptr;
+        sptr=sptr.next;
+        fptr=fptr.next.next;
+        }
+       
+        sptr=prev_ptr.next;
+         
+        Node rev_head=reverse(sptr);
+     
+        while(rev_head!=null){
+         if(rev_head.data!=dummy.data){
+            return false;
+            
+         }
+         rev_head=rev_head.next;
+         dummy=dummy.next;
+        }
+        return true;
+    }  
+    Node reverse(Node sptr){
+         // System.out.println(sptr);
+        if(sptr==null){
+            return null;
+        }
+        Node prev=null;
+        Node current=sptr;
+        Node next=current.next;
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+          
+            prev=current;
+             current=next;
+        }
+        return prev;
+    }
+}
