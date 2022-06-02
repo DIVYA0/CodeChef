@@ -1,0 +1,14 @@
+class Solution
+{
+    int getMiddle(Node head)
+    {
+         // Your code here.
+         Node sptr=head;
+         Node fptr=head;
+         while(fptr!=null&&fptr.next!=null){
+             sptr=sptr.next;
+             fptr=fptr.next.next;
+         }
+         return sptr.data;
+    }
+}
